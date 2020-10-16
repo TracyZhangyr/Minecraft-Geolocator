@@ -6,11 +6,11 @@ title:  Team
 # {{ page.title }}
 
 
-## USER 1
-***UCI Net ID***: ucinetid1
+## Guoruizhe Sun
+***UCI Net ID***: guoruizs
 
-## USER 2
-***UCI Net ID***: ucinetid2
+## Zifan Chen
+***UCI Net ID***: zifanc
 
-## USER 3
-***UCI Net ID***: ucinetid3
+## Yuerong Zhang
+***UCI Net ID***: yuerongz
