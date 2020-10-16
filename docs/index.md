@@ -2,7 +2,7 @@
 layout: default
 title:  Home
 ---
-![map1.png](./img/map1.png)
+![map1.png](https://github.com/alaister123/Geolocator/blob/main/docs/img/map1.PNG)
 
 
 Source code: https://github.com/alaister123/Geolocator
