@@ -2,9 +2,6 @@
 layout: default
 title:  Home
 ---
-
-##Introduction
-
 ![map1.PNG](https://github.com/alaister123/Geolocator/blob/main/docs/img/map1.PNG)
 
 
