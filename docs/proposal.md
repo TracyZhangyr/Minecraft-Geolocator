@@ -15,7 +15,7 @@ to real world applications such as automatic geolocation tagging for social medi
 like instagram or facebook. 
 
 ## AI/ML Algorithms
-We anticipate building 3 different Convolutional Neural Network architectures for our project.
+We anticipate building few different Convolutional Neural Network architectures for our project.
 
 
 ## Evaluation Plan
