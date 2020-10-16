@@ -14,6 +14,8 @@ how well machines could determine geolocation given an image. Our project could 
 to real world applications such as automatic geolocation tagging for social media sites
 like instagram or facebook. 
 
+![overview pic](https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/general_overview.PNG)
+
 ## AI/ML Algorithms
 We anticipate building few different Convolutional Neural Network architectures for our project.
 
@@ -27,6 +29,7 @@ the latitude and longitude randomly. We expect our model to improve
 moderately compared to the baseline but not pinpoint accuracy as it may 
 be difficult to determine where exact the agent is with no other
 information but only one single picture.
+
 
 ### Qualitative Evaluation
 For qualitative analysis, we would like to evaluate the model based on 
