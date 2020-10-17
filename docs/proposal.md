@@ -28,7 +28,7 @@ We anticipate building few different Convolutional Neural Network architectures 
 ## Evaluation Plan
 ### Quantitative Evaluation
 The proposed problem is a type of regression problem. We will 
-be evluating the errors between the predicted location and the
+be evaluating the errors between the predicted location and the
 true location. We plan to use mean squared error and root mean squared error on the
 longitude and latitude. The baseline model will be guessing 
 the latitude and longitude randomly. We expect our model to improve 
@@ -41,7 +41,11 @@ information but only one single picture.
 For qualitative analysis, we would like to evaluate the model based on 
 certain landmarks. That is, whether the agent could estimate a location 
 where a landmark could be seen from both the original coordinates and the 
-predicted coordinates. 
+predicted coordinates. In addition to landmarks, biome would also be a
+good indicator. For example, the model would have a reasonable improvement if
+it could predict a location with within
+the same biome as the original picture would be. Both
+landmark and biome evaluations will be done by human judgement.
 
 ## Appointment with the Instructor
 4:45pm Pacific Time, Friday, October 23, 2020
