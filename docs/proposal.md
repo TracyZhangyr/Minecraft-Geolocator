@@ -42,10 +42,14 @@ For qualitative analysis, we would like to evaluate the model based on
 certain landmarks. That is, whether the agent could estimate a location 
 where a landmark could be seen from both the original coordinates and the 
 predicted coordinates. In addition to landmarks, biome would also be a
-good indicator. For example, the model would have a reasonable improvement if
-it could predict a location with within
+good indicator. For example, the model would have a reasonable improvement compared
+to baseline mode if it could predict a location with within
 the same biome as the original picture would be. Both
 landmark and biome evaluations will be done by human judgement.
+
+### Moonshot case
+Our moonshot case would be to have a mean square error less than or equal to
+100. 
 
 ## Appointment with the Instructor
 4:45pm Pacific Time, Friday, October 23, 2020
