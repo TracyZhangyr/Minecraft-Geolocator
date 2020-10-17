@@ -49,7 +49,7 @@ landmark and biome evaluations will be done by human judgement.
 
 ### Moonshot case
 Our moonshot case would be to have a mean square error less than or equal to
-100. 
+100 
 
 ## Appointment with the Instructor
 4:45pm Pacific Time, Friday, October 23, 2020
