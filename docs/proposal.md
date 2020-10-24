@@ -21,6 +21,29 @@ like instagram or facebook.
 ![overview pic](https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/general_overview.PNG)
 
 
+### Specific Details
+We will train and test the models in a 200x200 area. -100 to 100 in the x direction
+and -100 to 100 in the z direction (in Minecraft, z direction is the longitude). The
+map will be a survival world with a set seed. We are currently finding a good seed
+that offers a variety of enviroments. There will be 4 pictures taken for every 10 blocks
+in the x direction and in the z direction. The 4 pictures will be the agent facing North,
+South, East, and West.
+
+### Achieve by Demo (Status Report)
+- A data gathering agent that goes around to take pictures
+- Simple MLP model will be used to train/test the data
+- Given a test image, the model will be able to output x coordinate and z coordinate
+
+### Achieve by Final 
+- 3 types of CNN architectures will be built to test which one is better (MSE)
+- Given an image, Steve will predict coordinates using one specific deep learning model and walk there
+- KNN model may be tested(not guarenteed)
+- Evaluation report comparing 3 types of CNN architectures, MLP, and maybe KNN
+
+### Weekly Meeting Time
+- Every Thursday 7p.m. Irvine time
+
+
 ## AI/ML Algorithms
 We anticipate building few different Convolutional Neural Network architectures for our project.
 
