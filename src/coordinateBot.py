@@ -33,7 +33,7 @@ missionXML='''<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
                     <Weather>clear</Weather> <!-- Keep steady weather to make image parsing simple -->
                 </ServerInitialConditions>
                 <ServerHandlers>
-                    <DefaultWorldGenerator seed="10"/>
+                    <FileWorldGenerator src="C:\\Users\\alaister\\Desktop\\CS175\\malmo\\Minecraft\\run\\saves\\Washington" />
                     <ServerQuitWhenAnyAgentFinishes/>
                 </ServerHandlers>
             </ServerSection>
@@ -110,18 +110,19 @@ coordinate_list = list()
 time.sleep(1)
 counter = 0
 
-
+home_x = 30
+home_z = 100
 
 time.sleep(0.1)
-for xcood in range(3):
-    for zcood in range(3):
+for xcood in range(-5,6,1):
+    for zcood in range(-5,6,1):
         
         # calculate the coordinates
-        x = xcood*10 
-        z = zcood*10 
+        x = xcood*20 + home_x
+        z = zcood*20 + home_z
 
         # teleport & let the scene load
-        agent_host.sendCommand(f"tp {x} 100 {z}")
+        agent_host.sendCommand(f"tp {x} 120 {z}")
         time.sleep(5)
 
         # get current frame and export as jpg
