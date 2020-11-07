@@ -10,7 +10,7 @@ title: Status
 
 ## Summary
 
-In our CS 175 Project, we are interested in the problem of image regression. Given an image of size 640x360x3 in a custom made map of Washington D.C., predict the coordinates of where that image was taken in Minecraft. That is, the result is two coordinates x and z. We solve through gathering image data and their corresponding coordinates to train a convolutional neural network. Finally, we would save this neural network model and load it into an agent. This agent would pass a test image through the model, receive x and z coordinates, and walk automatically to the predicted coordinates. 
+In our CS 175 Project, we are interested in the problem of image regression. Given an image of size 640x360x3 in a custom made map of Washington D.C., predict the coordinates of where that image was taken in Minecraft. That is, the result is two coordinates x and z. We solve through gathering image data and their corresponding coordinates to train a Convolutional Neural Network. Pixels and their corresponding colors would be features and the target would be two continuously variables, x-coordinate and z-coordinate.
 
 We would be gather training data from 4 directions, North, South, East, West, respectively. The model would be trained in an area 400x400 area. -200 to 200 in the x-direction and -200 to 200 in the z-direction. Pictures are taken every 5 blocks in the x-direction and the z-direction.
 
@@ -28,6 +28,6 @@ We solved a simpler problem in our status report. The problem is limited in size
 
 # Approach
 
-## Multi-Layer Perceptron
+## Multi-Layer Perceptron (Baseline Model)
 
 ## Convolutional Neural Network
