@@ -37,8 +37,7 @@ South, East, and West.
 ### Achieve by Final 
 - 3 types of CNN architectures will be built to test which one is better (MSE)
 - Given an image, Steve will predict coordinates using one specific deep learning model and walk there
-- KNN model may be tested(not guarenteed)
-- Evaluation report comparing 3 types of CNN architectures, MLP, and maybe KNN
+- Evaluation report comparing 3 types of CNN architectures, and MLP
 
 ### Weekly Meeting Time
 - Every Thursday 7p.m. Irvine time
