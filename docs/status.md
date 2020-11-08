@@ -31,7 +31,7 @@ We solved a simpler problem in our status report. The problem is limited in size
 
 # Approach
 
-We created an agent called coordinatebot.py to take pictures in the designated areas. The agent took a total of 441 colored images with a resolution of 640x360 (16:9). We created some neural networks (MLP and CNN) for coordinate regression. One of the MLP is our baseline model. We will give our approach to all models in the space below.
+We created an agent called coordinatebot.py to take pictures in the designated areas. The agent took a total of 441 colored images with a resolution of 640x360 (16:9). We created 4 neural networks (3 MLP and 1 CNN) for coordinate regression. One of the MLP is our baseline model. We will give our approach to all models in the space below.
 
 ## Multi-Layer Perceptron 
 
@@ -49,7 +49,7 @@ This allows us to reduce the number of input features to 36864 as we eliminated 
 
 From [Tensorflow’s Website](https://www.tensorflow.org/js/guide/models_and_layers): Note the None values in the output shapes of the layers: a reminder that the model expects the input to have a batch size as the outermost dimension, which in this case can be flexible due to the null value.
 
-The first 3 dense layers have Rectified Linear Unit activation function. The last dense layer has a linear activation function. The dropout layer has a dropout rate of 0.05. The loss function is mean square error and the optimizer is Adam. We trained the model with 100 epoches and with a batch_size of 5.
+The first 3 dense layers have Rectified Linear Unit activation function. The last dense layer has a linear activation function. The dropout layer has a dropout rate of 0.05. The loss function is mean square error and the optimizer is Adam. We trained the model with 40 epoches and with a batch_size of 3.
 
 
 ### Oriented FAST and Rotated BRIEF (ORB)
@@ -68,7 +68,7 @@ The first 3 dense layers have Rectified Linear Unit activation function. The las
 
 This idea came from how humans recognize a location. Given the example of the picture above, we know that the picture is taken in San Francisco because we recognize the Golden Gate Bridge. We tried to simulate this idea with our dataset.
 
-We uniformed chose 22 pictures from our 441 dataset and set them as landmarks. We ran ORB algorithm on these 22 landmark pictures and their feature vector are used as landmark features. We then computed the feature vector for the rest of the dataset and ran a brute force feature matching algorithm provided by OpenCV to those 22 landmark pictures. The amount of matched and their corresponding match distance is used as feature space for MLP. The MLP model we used has the specification below:
+We uniformed chose 40 pictures from our 441 dataset and set them as landmarks. We ran ORB algorithm on these 40 landmark pictures and their feature vector are used as landmark features. We then computed the feature vector for the rest of the dataset and ran a brute force feature matching algorithm provided by OpenCV to those 40 landmark pictures. The amount of key points matched and their corresponding match distance are used as feature space for MLP. The MLP model we used has the specification below:
 
 <img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/mlp_landmark.PNG" />
 
