@@ -66,7 +66,7 @@ The first 3 dense layers have Rectified Linear Unit activation function. The las
 
 <img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/ggb.jpg" width='450'/>
 
-This idea came from how humans recognize a location. Given the example of the picture above, we know that the picture is taken in San Francisco because we recognize the Golden Gate Bridge. We tried to simulate that with our dataset.
+This idea came from how humans recognize a location. Given the example of the picture above, we know that the picture is taken in San Francisco because we recognize the Golden Gate Bridge. We tried to simulate this idea with our dataset.
 
 We uniformed chose 22 pictures from our 441 dataset and set them as landmarks. We ran ORB algorithm on these 22 landmark pictures and their feature vector are used as landmark features. We then computed the feature vector for the rest of the dataset and ran a brute force feature matching algorithm provided by OpenCV to those 22 landmark pictures. The amount of matched and their corresponding match distance is used as feature space for MLP. The MLP model we used has the specification below:
 
