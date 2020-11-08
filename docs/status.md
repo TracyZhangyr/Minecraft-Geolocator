@@ -31,7 +31,7 @@ We solved a simpler problem in our status report. The problem is limited in size
 
 # Approach
 
-We created an agent called coordinatebot.py to take pictures in the designated areas. The agent took a total of 441 colored images with a resolution of 640x360 (16:9). We created some neural networks (MLP and CNN) for coordinate regression. One of the MLP is our baseline model, and we the other models we created against the baseline. We will give our approach to all models in the space below.
+We created an agent called coordinatebot.py to take pictures in the designated areas. The agent took a total of 441 colored images with a resolution of 640x360 (16:9). We created some neural networks (MLP and CNN) for coordinate regression. One of the MLP is our baseline model. We will give our approach to all models in the space below.
 
 ## Multi-Layer Perceptron 
 
@@ -64,7 +64,7 @@ The first 3 dense layers have Rectified Linear Unit activation function. The las
 
 ### Landmark ORB
 
-<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/ggb.jpg" width='300'/>
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/ggb.jpg" width='450'/>
 
 This idea came from how humans recognize a location. Given the example of the picture above, we know that the picture is taken in San Francisco because we recognize the Golden Gate Bridge. We tried to simulate that with our dataset.
 
@@ -72,6 +72,6 @@ We uniformed chose 22 pictures from our 441 dataset and set them as landmarks. W
 
 <img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/mlp_landmark.PNG" />
 
-The first 3 dense layers have Rectified Linear Unit activation function. The last dense layer () has a linear activation function. The dropout layer has a dropout rate of 0.01. The loss function is mean square error and the optimizer is Adam. We trained the model with 50 epoches and with a batch_size of 3.
+The first 3 dense layers have Rectified Linear Unit activation function. The last dense layer has a linear activation function. The dropout layer has a dropout rate of 0.01. The loss function is mean square error and the optimizer is Adam. We trained the model with 50 epoches and with a batch_size of 3.
 
 ## Convolutional Neural Network
