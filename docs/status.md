@@ -81,3 +81,21 @@ While we have to devise feature extraction methods for MLP, CNN, on the other si
 <img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/cnn.PNG" />
 
 All the Conv2D layers have Rectified Linear Unit activation function with SAME padding. The Dropout layer has a dropout rate of 0.2, and the Dense layer has a Rectified Linear Unit activation function. The output layer does not have an explicit activation function; it defaults to a linear activation function. We trained the model with 20 epoches and with a batch_size of 3. 
+
+# Evaluation
+
+## Quantitative Evaluation
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/equation.PNG" width='200' />
+
+We will be evaluating our models quantitatively using mean squared error. Mean square error measures the average of the squares of the difference between the estimated values and the actual value. In the context of this project, mean squared error is applied to the estimated coordinates (x and z) of where an image was taken and the true coordinates of where that image was taken. Note that the MSE formula above is not the average Euclidean distance error. However, the formula is proportional to the average Euclidean distance error. In general, the lower the MSE is, the close our estimated coordinates are to the true coordinates. We performed 5 fold cross-validation on all of our models and got the average mean squared error for the test samples and the train samples. We are not only interested in the test accuracy but also interested in the training accuracy. The results are presented in the table below.
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/table.PNG" width='200' />
+
+We could see from the MSE table above that MLP ORB Features model outperforms the baseline model (MLP pixel) by a large margin, both on Train MSE and Test MSE. MLP ORB Features model outperformed baseline model by a MSE of 3302 on training data and a MSE of 1455 on the testing data. To give a more concrete idea, given a train image, MLP ORB Features model would, on average, predict a coordinate that is 16.5 blocks away from the true coordinates in x-axis and z-axis. Given a test image, MLP ORB Features model would, on average, predict a coordinate that is 56 blocks away from the true coordinates in x-axis and z-axis. In addition, we could also observe from the MSE table that our CNN model is performing better than the baseline. Eventhough the model is overfitting, CNN still has a lower MSE compared to the baseline. The high Test MSE is within our expectation because we used a real life environment. Real life environments are complexed and highly subjected to change. Even 10 blocks away could have drastically different image features. There are also noisy images that decrease model accuracy. Thus, we believe that the actual Test MSE for the models should be slightly lower if noisy images are removed.
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/Status%20Report-MSE%20Low.png" />
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/Status%20Report-MSE%20High.png" />
+
+## Qualitative Evaluation
