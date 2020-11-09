@@ -103,3 +103,5 @@ We could see from the MSE table above that MLP ORB Features model outperforms th
 ## Qualitative Evaluation
 
 <img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/Status%20Report-Picture.png" />
+
+We loaded the models onto our result checker. We gave each model the same test picture as our quantitative evaluation, and the results are shown above. The test image consists of the right-side of the Whitehouse replication, a carlike object as well as some forest terrain on the right side of the test image. While models have high test MSE numbers, as indicated in the quantitative evaluation, we could see all the predictions retain some test image features. CNN predicted an enlarged image of the entrance to the Whitehouse. MLP Pixel, MLP ORB, and MLP Landmark seem to be predicting more of the forest. However, none of the predicted images have the blue carlike object in the test image. We also created a Cartesian coordinate graph with the test image centered at (0, 0). The coordinates of the model predictions have been adjusted to the relative center and the direction the agent is facing.  
