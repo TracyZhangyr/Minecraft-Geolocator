@@ -39,7 +39,7 @@ For MLP, we devised 3 different types of feature space.
 
 ### Each individual pixels as features (Baseline Model)
 
-We first converted the image to grayscale to reduce the number of features. The original image has R, G, and B channels. That is 640x360x3. We would have 691200 input features for our Multi-Layer Perceptron. That is too much! We reduced the number of input features by resizing the image and grayscaling the image. We rescaled the image to 256x144x3, and we converted the image to grayscale using the following formula. 
+We first rescaled the image to 256x144x3 to reduce the number of pixels needed for training. The original image has a resolution of 640x360x3. We would have 691200 input features for our Multi-Layer Perceptron. That is too much! We reduced the number of input features by resizing the image and grayscaling the image. We, and we converted the image to grayscale using the following formula. 
 
 Y = 0.2989 R + 0.5870 G + 0.1140 B
 
@@ -137,3 +137,5 @@ We anticipate 2 challenges: Machine Learning with multiple images of the same co
 [scikit-learn](https://scikit-learn.org/stable/)
 
 [Basic regression: Predict fuel efficiency](https://www.tensorflow.org/tutorials/keras/regression)
+
+[PRODIGIOUS WASHINGTON (Minecraft Map)](https://www.minecraftmaps.com/city-maps/prodigious-washington)
