@@ -98,4 +98,8 @@ We could see from the MSE table above that MLP ORB Features model outperforms th
 
 <img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/Status%20Report-MSE%20High.png" />
 
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/Status%20Report-Page-5.png" />
+
 ## Qualitative Evaluation
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/Status%20Report-Picture.png" />
