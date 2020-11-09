@@ -12,22 +12,22 @@ title: Status
 
 In our CS 175 Project, we are interested in the problem of image regression. Given an image of size 640x360x3 in a custom made map of Washington D.C., predict the coordinates of where that image was taken in Minecraft. That is, the result is two coordinates x and z. We solve through gathering image data and their corresponding coordinates to train Convolutional Neural Networks and Multi-Layer Perceptrons. Finally, we would save the best performing neural network model and load it into an agent. This agent would pass a test image through the model, receive x and z coordinates, and walk automatically to the predicted coordinates. 
 
-We would be gather training data from 4 directions, North, South, East, West, respectively. The model would be trained in an area 200x200 area. -100 to 100 in the x-direction and -100 to 100 in the z-direction. Pictures are taken every 5 blocks in the x-direction and the z-direction.
+We would be gather training data from 2 directions, North, and East. The model would be trained in an area 200x200 area. -100 to 100 in the x-direction and -100 to 100 in the z-direction. 
+
 
 ## Picture Summary
 <img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/high_level.png" width="800" />
 
 ## Changes Made
 
-1.	Reduced picture taken from every 10 blocks to every 5 blocks
+1.	Reduced from 4 images per coordinate to 2 images per coordinate
 2.	Image resolution is set to 640x360x3
 3.	Map changed from set survival Minecraft seed to custom made map of Washington D.C.
 
 
-
 ## What we solved in our prototype
 
-We solved a simpler problem in our status report. The problem is limited in size and difficulty. We limited the training data to 1 direction (East) and have the picture taken every 10 blocks instead of every 5 blocks to save computational time. 
+We solved a simpler problem in our status report. The problem is limited in size and difficulty. We limited the training data to 1 direction (Positive z direction).
 
 # Approach
 
@@ -104,4 +104,36 @@ We could see from the MSE table above that MLP ORB Features model outperforms th
 
 <img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/Status%20Report-Picture.png" />
 
-We loaded the models onto our result checker. We gave each model the same test picture as our quantitative evaluation, and the results are shown above. The test image consists of the right-side of the Whitehouse replication, a carlike object as well as some forest terrain on the right side of the test image. While models have high test MSE numbers, as indicated in the quantitative evaluation, we could see all the predictions retain some test image features. CNN predicted an enlarged image of the entrance to the Whitehouse. MLP Pixel, MLP ORB, and MLP Landmark seem to be predicting more of the forest. However, none of the predicted images have the blue carlike object in the test image. We also created a Cartesian coordinate graph with the test image centered at (0, 0). The coordinates of the model predictions have been adjusted to the relative center and the direction the agent is facing.  
+We loaded the models onto our result checker. We gave each model the same test picture as our quantitative evaluation, and the results are shown above. The test image consists of the right-side of the Whitehouse replication, a carlike object as well as some forest terrain on the right side. While models have high test MSE numbers, as indicated in the quantitative evaluation, we could see all the predictions retain some test image features. CNN predicted an enlarged image of the entrance to the Whitehouse. MLP Pixel, MLP ORB, and MLP Landmark seem to be predicting more of the forest. However, none of the predicted images have the blue carlike object in the test image. We also created a Cartesian coordinate graph with the test image centered at (0, 0). The coordinates of the model predictions have been adjusted to the relative center and the direction the agent is facing.  
+
+# Remaining Goals and Challenges
+
+## Goals 
+
+Now that we have demonstrated that performing coordinate regression prediction on a single image is a viable option, we would like to upscale our project by incorporating several images of a single coordinate. Hopefully, the additional images will provide more information, which may decrease MSE. We have also shown in our status report that a simple CNN model outperforms all MLP models we have created. We would like to investigate the performance of some CNN architectures such as AlexNet, VGG, and LeNet-5 (the specific CNN architecture to be implemented is subjected to change).
+
+## Challenges
+
+We anticipate 2 challenges: Machine Learning with multiple images of the same coordinate and the time/computational cost of training large CNN architectures. We will address the problem of having multiple images of the same coordinate first. If we take 4 images (North, South, East, and West) at a 90 degree field of view in the same position, those images will be disjointed and have different image features. This may decrease model accuracy. Another issue is figuring out the input shape for such data (having 4 images mapping to 1 pair of coordinates). We could solve these problems by taking images at a 120 degree field of view and then joining them together to create a panoramic image. This solution could potentially retain all image feature from different images of the same coordinate. Also, we do not have to worry about the shape for input data. We will just have one large panoramic image mapping to 1 pair of coordinate. The second challenge is the time and computational cost for training CNN architectures. We created a simple CNN for our status report, and it took around 4 hours to ran 5 fold cross-validation. We anticipating building larger networks with a larger dataset for our final report meaning the training time will get longer. The solution to this problem is simple. We will decrease the amount of CNN architectures created from 3 to 1 or 2. It is also likely that we will reduce the image per coordinate from 4 to 2 to reduce computational power.
+
+# Resources Used
+
+[Project Malmo](https://www.microsoft.com/en-us/research/project/project-malmo/)
+
+[TensorFlow](https://www.tensorflow.org/)
+
+[OpenCV](https://opencv.org/)
+
+[Feature detection and matching with OpenCV](https://blog.francium.tech/feature-detection-and-matching-with-opencv-5fd2394a590)
+
+[Regression to the mean and its implications](https://towardsdatascience.com/regression-to-the-mean-and-its-implications-648660c9bf76)
+
+[Feature extraction from images](https://www.kaggle.com/lorinc/feature-extraction-from-images)
+
+[Deep Learning Models for Multi-Output Regression](https://machinelearningmastery.com/deep-learning-models-for-multi-output-regression/)
+
+[XML Schema Documentation](https://microsoft.github.io/malmo/0.14.0/Schemas/Mission.html)
+
+[scikit-learn](https://scikit-learn.org/stable/)
+
+[Basic regression: Predict fuel efficiency](https://www.tensorflow.org/tutorials/keras/regression)
