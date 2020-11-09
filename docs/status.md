@@ -75,3 +75,9 @@ We uniformed chose 40 pictures from our 441 dataset and set them as landmarks. W
 The first 3 dense layers have Rectified Linear Unit activation function. The last dense layer has a linear activation function. The dropout layer has a dropout rate of 0.01. The loss function is mean square error and the optimizer is Adam. We trained the model with 50 epoches and with a batch_size of 3.
 
 ## Convolutional Neural Network
+
+While we have to devise feature extraction methods for MLP, CNN, on the other side, does need manual feature extraction. The convolution layers followed by max-pooling layers serve as the feature extraction steps for CNN. Then we apply a hidden layer to distinguish those features and output two continuous variables. We load the image and grayscale the image to reduce computational cost while retaining the majority of image features. We then feed the grayscaled image through the CNN model with the specified architecture below.
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/cnn.PNG" />
+
+All the Conv2D layers have Rectified Linear Unit activation function with SAME padding. The Dropout layer has a dropout rate of 0.2, and the Dense layer has a Rectified Linear Unit activation function. The output layer does not have an explicit activation function; it defaults to a linear activation function. We trained the model with 20 epoches and with a batch_size of 3. 
