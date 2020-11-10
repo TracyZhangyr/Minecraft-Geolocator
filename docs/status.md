@@ -12,7 +12,7 @@ title: Status
 
 In our CS 175 Project, we are interested in the problem of image regression. Given an image of size 640x360x3 in a custom made map of Washington D.C., predict the coordinates of where that image was taken in Minecraft. That is, the result is two coordinates x and z. We solve through gathering image data and their corresponding coordinates to train Convolutional Neural Networks and Multi-Layer Perceptrons. Finally, we would save the best performing neural network model and load it into an agent. This agent would pass a test image through the model, receive x and z coordinates, and walk automatically to the predicted coordinates. 
 
-We would be gather training data from 4 directions, North, South, East and West. The model would be trained in an area 200x200 area. -100 to 100 in the x-direction and -100 to 100 in the z-direction. 
+We would be gather training data from 4 directions, North, South, East and West for a single pair of coordinates. The model would be trained in an area 200x200 area. -30 to 130 in the x-direction and 100 to 200 in the z-direction. Images will be taken every 10 blocks in the x direction and every 10 blocks in the z direction.  
 
 
 ## Picture Summary
