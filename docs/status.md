@@ -53,7 +53,9 @@ The first 3 dense layers have Rectified Linear Unit activation function. The las
 
 ### Oriented FAST and Rotated BRIEF (ORB)
 
-FAST stands for Features from Accelerated Segment Test and BRIEF stands for Binary Robust Independent Elementary Features. FAST is used for corner detection and BRIEF is a feature descriptor. A feature descriptor is an algorithm that takes an image and output feature vectors of that image. We believe that images that are in close proximity to another will have similar feature vectors.
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/orb.PNG" />
+
+FAST stands for Features from Accelerated Segment Test and BRIEF stands for Binary Robust Independent Elementary Features. FAST is used for corner detection and BRIEF is a feature descriptor. A feature descriptor is an algorithm that takes an image and output feature vectors of that image. The blue circles on the image below are points that the algorithm believe are interesting. We believe that images that are in close proximity to another will have similar feature vectors. 
 
 We used Opencv’s ORB function to detect and compute the descriptors of each individual image. A total of 100 features are selected from each individual image. We flattened the feature vectors for each image and used them as the input for our MLP. The MLP model we used has the specification below:
 
@@ -109,10 +111,11 @@ We loaded the models onto our result checker. We gave each model the same test p
 
 ## Goals 
 
-Now that we have demonstrated that performing coordinate regression prediction on a single image is a viable option, we would like to upscale our project by incorporating several images of a single coordinate. Hopefully, the additional images will provide more information, which may decrease MSE. We have also shown in our status report that a simple CNN model outperforms all MLP models we have created. We would like to investigate the performance of some CNN architectures such as AlexNet, VGG, and LeNet-5 (the specific CNN architecture to be implemented is subjected to change).
+Now that we have demonstrated that performing coordinate regression prediction on a single image is a viable option, we would like to upscale our project by incorporating several images of a single coordinate. Our prototype only used images from 1 direction rather than 4 directions. Hopefully, the additional images will provide more information, which may decrease MSE. We have also shown in our status report that a simple CNN model outperforms all MLP models we have created. We would like to investigate the performance of some CNN architectures such as AlexNet, VGG, and LeNet-5 (the specific CNN architecture to be implemented is subjected to change) in our final report.
 
 ## Challenges
 
+We anticipate 2 challenges: Machine Learning with multiple images of the same coordinate, and the time/computational cost of training large CNN architectures. We will address the problem of having to learn from multiple images of the same coordinate first. We will take 4 images (North, South, East, and West) at a 90 degree field of view in the same position and try to develop a machine learning model that performs multi-view learning. One potential issue is figuring out how we should adjust our models with the new data format. For example, the input shape for multi-view image data would be different from single image data (the one we did in this status report). We would solve this problem through reading some papers or looking at some models that implement some form of multi-view learning. The second challenge is the time and computational cost for training CNN architectures. We created a simple CNN for our status report, and it took around 4 hours to ran 5 fold cross-validation. We anticipating building larger networks with a larger dataset for our final report meaning the training time will get longer. One solution is to grayscale the image to reduce image dimensions. This problem is tricky because performing dimensionality reduction will cause the image to lose some features that may be relevant to regression. We would have to find the balance between feature preservation and dimensionality reduction.
 
 
 # Resources Used
