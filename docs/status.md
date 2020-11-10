@@ -55,7 +55,7 @@ The first 3 dense layers have Rectified Linear Unit activation function. The las
 
 <img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img/orb.PNG" />
 
-FAST stands for Features from Accelerated Segment Test and BRIEF stands for Binary Robust Independent Elementary Features. FAST is used for corner detection and BRIEF is a feature descriptor. A feature descriptor is an algorithm that takes an image and output feature vectors of that image. The blue circles on the image below are points that the algorithm believe are interesting. We believe that images that are in close proximity to another will have similar feature vectors. 
+FAST stands for Features from Accelerated Segment Test and BRIEF stands for Binary Robust Independent Elementary Features. FAST is used for corner detection and BRIEF is a feature descriptor. A feature descriptor is an algorithm that takes an image and output feature vectors of that image. The blue circles on the image above are points that the algorithm believe are interesting. We believe that images that are in close proximity to another will have similar feature vectors. 
 
 We used Opencv’s ORB function to detect and compute the descriptors of each individual image. A total of 100 features are selected from each individual image. We flattened the feature vectors for each image and used them as the input for our MLP. The MLP model we used has the specification below:
 
