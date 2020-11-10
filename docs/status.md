@@ -113,7 +113,7 @@ Now that we have demonstrated that performing coordinate regression prediction o
 
 ## Challenges
 
-We anticipate 2 challenges: Machine Learning with multiple images of the same coordinate and the time/computational cost of training large CNN architectures. We will address the problem of having multiple images of the same coordinate first. If we take 4 images (North, South, East, and West) at a 90 degree field of view in the same position, those images will be disjointed and have different image features. This may decrease model accuracy. Another issue is figuring out the input shape for such data (having 4 images mapping to 1 pair of coordinates). We could solve these problems by taking images at a 120 degree field of view and then joining them together to create a panoramic image. This solution could potentially retain all image feature from different images of the same coordinate. Also, we do not have to worry about the shape for input data. We will just have one large panoramic image mapping to 1 pair of coordinate. The second challenge is the time and computational cost for training CNN architectures. We created a simple CNN for our status report, and it took around 4 hours to ran 5 fold cross-validation. We anticipating building larger networks with a larger dataset for our final report meaning the training time will get longer. The solution to this problem is simple. We will decrease the amount of CNN architectures created from 3 to 1 or 2. It is also likely that we will reduce the image per coordinate from 4 to 2 to reduce computational power.
+
 
 # Resources Used
 
