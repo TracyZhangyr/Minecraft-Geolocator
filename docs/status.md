@@ -4,7 +4,7 @@ title: Status
 ---
 
 
-<iframe width="854" height="480" src="https://youtu.be/AOWhdx-pizg" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AOWhdx-pizg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # Project Summary
 
