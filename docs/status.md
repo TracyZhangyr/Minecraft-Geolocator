@@ -4,7 +4,7 @@ title: Status
 ---
 
 
-# Placeholder for Youtube Video
+<iframe width="854" height="480" src="https://www.youtube.com/watch?v=AOWhdx-pizg&feature=youtu.be" frameborder="0" allowfullscreen></iframe>
 
 # Project Summary
 
