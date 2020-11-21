@@ -65,6 +65,7 @@ def saveImg(pix,h,w,name):
 
 # Create default Malmo objects:
 agent_host = MalmoPython.AgentHost()
+agent_host.setVideoPolicy(MalmoPython.VideoPolicy.LATEST_FRAME_ONLY)
 try:
     agent_host.parse( sys.argv )
 except RuntimeError as e:
@@ -113,14 +114,15 @@ counter = 0
 home_x = 30
 home_z = 100
 
-time.sleep(0.1)
-for xcood in range(-5,6,1):
-    for zcood in range(-5,6,1):
+time.sleep(10)
+for xcood in range(-10,11,1):
+    for zcood in range(-10,11,1):
         
         # calculate the coordinates
-        x = xcood*20 + home_x
-        z = zcood*20 + home_z
-
+        x = xcood*10 + home_x
+        z = zcood*10 + home_z
+        
+        agent_host.sendCommand("setYaw 180")
         # teleport & let the scene load
         agent_host.sendCommand(f"tp {x} 120 {z}")
         time.sleep(5)
@@ -134,6 +136,38 @@ for xcood in range(-5,6,1):
         # update necessary information 
         counter += 1
         coordinate_list.append((x,z))
+
+
+        time.sleep(1)
+        agent_host.sendCommand("setYaw 90")
+        time.sleep(2)
+        world_state = agent_host.getWorldState()
+        img = world_state.video_frames[0].pixels
+        saveImg(img,HEIGHT,WIDTH,f"{counter}.jpg")
+        print(f"Picture Saved for {(x,z)}")
+        counter += 1
+
+        time.sleep(1)
+        agent_host.sendCommand("setYaw 0")
+        time.sleep(2)
+        world_state = agent_host.getWorldState()
+        img = world_state.video_frames[0].pixels
+        saveImg(img,HEIGHT,WIDTH,f"{counter}.jpg")
+        print(f"Picture Saved for {(x,z)}")
+        counter += 1
+
+        time.sleep(1)
+        agent_host.sendCommand("setYaw -90")
+        time.sleep(2)
+        world_state = agent_host.getWorldState()
+        img = world_state.video_frames[0].pixels
+        saveImg(img,HEIGHT,WIDTH,f"{counter}.jpg")
+        print(f"Picture Saved for {(x,z)}")
+        counter += 1
+        
+
+        
+        
 
         # debug purpose
         for error in world_state.errors:
