@@ -9,6 +9,9 @@ title: Final Report
 Place Holder for Video
 
 ## Project Summary
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/Summary%20Diagram.png" />
+
 In our CS 175 Project, we are interested in the problem of image regression. Given 4 images of size 640x360x3 in a custom made map of Washington D.C., predict the coordinates of where that image was taken in Minecraft. That is, the result is two coordinates x, and z. We solve through gathering image data and their corresponding coordinates to train Convolutional Neural Networks. 
 
 We would be gather training data from 4 directions, North, South, East, and West, for a single pair of coordinates. The model would be trained in an area 200x200 area. -30 to 130 in the x-direction and 0 to 200 in the z-direction. Images will be taken every 10 blocks in the x direction and every 10 blocks in the z direction.  
