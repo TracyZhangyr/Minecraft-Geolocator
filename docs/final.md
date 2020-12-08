@@ -40,7 +40,7 @@ This section will be divided into 3 smaller sections: Data Collection, Data Dime
 
 ### Data Dimensionality Reduction
 
-<img src="https://github.com/alaister123/Geolocator/blob/main/docs/img_final/CS175%20Final%20Diagrams-Data%20Preprocessing.png" />
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/CS175%20Final%20Diagrams-Data%20Preprocessing.png" />
 
 We convert input images to grayscale and normalize image data to the range [0,1] to reduce computational cost while retaining most image features.
 
