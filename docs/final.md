@@ -10,7 +10,7 @@ Place Holder for Video
 
 ## Project Summary
 
-<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/CS175%20Final%20Diagrams-Intro%20picture.png" width='600' />
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/CS175%20Final%20Diagrams-Intro%20picture.png" width='700' />
 
 In our CS 175 Project, we are interested in the problem of image regression. Given 4 images of size 640x360x3 in a custom made map of Washington D.C., predict the coordinates of where that image was taken in Minecraft. That is, the result is two coordinates x, and z. We solve through gathering image data and their corresponding coordinates to train Convolutional Neural Networks. 
 
@@ -40,7 +40,7 @@ This section will be divided into 3 smaller sections: Data Collection, Data Dime
 
 ### Data Dimensionality Reduction
 
-https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/CS175%20Final%20Diagrams-Shape%20explained.png
+<img src="https://github.com/alaister123/Geolocator/blob/main/docs/img_final/CS175%20Final%20Diagrams-Data%20Preprocessing.png" />
 
 We convert input images to grayscale and normalize image data to the range [0,1] to reduce computational cost while retaining most image features.
 
