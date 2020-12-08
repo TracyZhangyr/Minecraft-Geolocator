@@ -45,3 +45,19 @@ This section will be divided into 3 smaller sections: Data Collection, Data Dime
 We convert input images to grayscale and normalize image data to the range [0,1] to reduce computational cost while retaining most image features.
 
 ### Models Created
+
+#### Predict Center (Baseline)
+
+This model always predicts the center of the training dataset regardless of the image input. This is a statistical phenomenon known as regression to the mean. When the input features are not correlated with the target values, the optimizer will start to predict towards the center to minimize the loss. The center for our training dataset is [30,100]. The model will always output [30, 100] as its prediction, regardless of what image is feed into it. The advantage of this model is that it does not require machine learning. It needs very minimal time to train because it only needs to average the training coordinates to get the center for the training dataset. The disadvantage of this model is that it is not very accurate. It will always predict the center regardless of how far or how close the image was taken relative to the center. This model is not very practical as one would want to know their current position. Thus, this model is our baseline model.
+
+#### LeNet-5 Individual
+
+This model is based on the LeNet-5 model. It is not the exact LeNet-5 model because we have made modifications to it. This model extracts features from the 4 different images individually. Each direction (+z, -z, +x, -z) has its own convolution layers to extract features, which are then concatenated and feed into a feed-forward multi-layer perceptron. One advantage of this model is that due to its unique architecture of extracting features from the 4 directions individually, the model is able to use Conv2D layers. Recall the shape of our training data is (441, 4, 360, 640, 1). The data has 5 dimensions, and Conv2D layers only accept 4 dimensions, namely (data size, height, width, channels). Using 4 different Conv2D layers to extract image features from the 4 directions allows us to reduce the data dimension to 4 rather than 5. Conv2D has an advantage over Conv3D as it trains faster. This gives us more time to tune the model and adjust it. One disadvantage of this model is that it is not able to recognize what image feature is from what direction. Sometimes images from different coordinates have similar features, but these similar features are captured in a different direction. This will cause the model to think that these 2 images are taken near each other due to their similar image features. The model is unaware of the fact that similar image features are from different directions causing high MSE loss. 
+
+We will present 2 pictures below: a high-level picture of the model’s architecture and detailed configurations.
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/CS175%20Final%20Diagrams-lenet%20individual.png" />
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/indivudal%20model.PNG" />
+
+The first convolutional layer has filters = 8, kernel_size = (3, 3), activation = relu, padding = same. The second convolutional layer has filters = 16, kernel_size = (3, 3), activation = relu, padding = same. The first dense layer has units = 512, with linear activation as default and the output layer has an output size of 2 with linear activation function. 
