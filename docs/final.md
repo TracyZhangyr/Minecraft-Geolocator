@@ -61,3 +61,16 @@ We will present 2 pictures below: a high-level picture of the model’s architec
 <img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/indivudal%20model.PNG" />
 
 The first convolutional layer has filters = 8, kernel_size = (3, 3), activation = relu, padding = same. The second convolutional layer has filters = 16, kernel_size = (3, 3), activation = relu, padding = same. The first dense layer has units = 512, with linear activation as default and the output layer has an output size of 2 with linear activation function. We fit the training data with batch_size = 10 and epochs = 20. To avoid overfitting the data, we decide to add dropout layers and stop early. We programed a callback function that will stop training once the loss fell below 700. We got this number after trial and error. It was determined that the optimal test and validation values occurs when the loss is in the range of 500 to 700. 
+
+#### LeNet-5 Conv3D
+
+This model is based on the LeNet-5 model. It is not the exact LeNet-5 model because we have made modifications to it. We replaced the Conv2D layers in the LeNet-5 model with Conv3D layers in order to fit the data. Recall the shape of our training data is (441, 4, 360, 640, 1). The data has 5 dimensions, and Conv3D can accept data up to 5 dimensions (data size, frames, height, width, RGB channels). Having Conv3D layers instead of Conv2D layers allows us to avoid complex data preprocessing steps that separate pictures based on directions. This saves storage space and is one of the advantages of this model. In addition, the model is relatively simple, making it easy to adjust and tune due to its simple architecture. One disadvantage of this model is that it takes longer to train compared to similar models with Conv2D layers. 
+
+We will present 2 pictures below: a high-level picture of the model’s architecture and detailed configurations.
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/CS175%20Final%20Diagrams-Conv3D.png" />
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/conv3d%20description.PNG" />
+
+The first convolutional layer has filters = 16, kernel_size = 5, activation = relu, padding = same. The second convolutional layer has filters = 32, kernel_size = 5, activation = relu, padding = same. All dense layers have linear activation function and the output layer has an output size of 2 with linear activation function. We fit the training data with batch_size = 3 and epochs = 5. To avoid overfitting the data, we decide to stop early (Around 1000 MSE). 
+
