@@ -140,7 +140,7 @@ Based on our qualitative assessment, Four Directions VGG 16 solves the problem q
 
 [Keras, Regression, and CNNs](https://www.pyimagesearch.com/2019/01/28/keras-regression-and-cnns/)
 
-[Understanding 1D and 3D Convolution Neural Network | Keras](https://towardsdatascience.com/understanding-1d-and-3d-convolution-neural-network-keras-9d8f76e29610)
+[Understanding 1D and 3D Convolution Neural Network Keras](https://towardsdatascience.com/understanding-1d-and-3d-convolution-neural-network-keras-9d8f76e29610)
 
 [Draw.io](draw.io)
 
