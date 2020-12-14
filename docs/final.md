@@ -74,3 +74,21 @@ We will present 2 pictures below: a high-level picture of the model’s architec
 
 The first convolutional layer has filters = 16, kernel_size = 5, activation = relu, padding = same. The second convolutional layer has filters = 32, kernel_size = 5, activation = relu, padding = same. All dense layers have linear activation function and the output layer has an output size of 2 with linear activation function. We fit the training data with batch_size = 3 and epochs = 5. To avoid overfitting the data, we decide to stop early (Around 1000 MSE). 
 
+#### Four Directions VGG 16
+
+
+## Evaluation
+
+This section will be divided into 2 subsections: Quantitative Evaluation and Qualitative evaluation. We will discuss our metrics in each of the evaluations, provide examples and data, as well as explain how we have solved the problem and to what extent have we solved the problem.
+
+### Quantitative Evaluation
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/mse.PNG" width='500' />
+
+We will be evaluating our models quantitatively using mean squared error. Mean square error measures the average of the squares of the difference between the estimated values and the actual value. In this project's context, the mean squared error is applied to the estimated coordinates (x and z) of where an image was taken and the true coordinates of where that image was taken. Note that the MSE formula above is not the average Euclidean distance error. However, the formula is proportional to the average Euclidean distance error. In general, the lower the MSE is, the closer our estimated coordinates are to the true coordinates. We ran our models on the training dataset and tuned it according to the test dataset's feedback. After we believe that we have achieved the optimal configuration, we ran our model on the validation dataset. The results are presented in the table below.
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/Table.PNG" width='500' />
+
+From the MSE table above, we could see that our Four Direction VGG 16 model performed the best, followed by LeNet-5 Individual and LeNet-5 Conv3D. Specifically, Four Direction VGG model has a test MSE of 460 and a validation MSE of 227. For a more concrete idea on these numbers, given 4 validation images of the same coordinate, LeNet-5 Individual model would predict a coordinate that is on average 33 blocks away from the true coordinates in both x and z direction. LeNet-5 Conv3D model would predict a coordinate that is on average 35 blocks away from the true coordinates in both x and z directions. Four Direction VGG model would predict a coordinate that is on average 16 blocks away from the true coordinate in both x and z directions. All of these models have a lower MSE compared to the Simple CNN model we did in our status report. The Simple CNN model has a MSE of 2264 which means on average 47 blocks away in both x and z directions. 
+
+We believe that we have achieved our goal indicated in the project summary section. All of our CNN models have less than 2700 MSE. And all the CNN models also have significantly lower MSE than our baseline model. We have solved this regression problem to the extent that users could get a rather accurate idea of their position in the Cartesian coordinate system: on average 16 blocks away from the true coordinate. To further proof that we have solve the problem, we have provided a histogram below to show the distribution of Validation MSEs. 
