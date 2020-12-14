@@ -92,7 +92,7 @@ We will present 2 pictures below: a high-level picture of the model’s architec
 
 <img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/vgg5.PNG" />
 
-The VGG16 section is imported from tensorflow. For specific configuration, please refer [here]( https://github.com/tensorflow/tensorflow/blob/v2.3.1/tensorflow/python/keras/applications/vgg16.py#L45-L225). The first dense layer has units = 128, with relu activation as default. To avoid overfitting the data, we decide to add dropout layers with a dropout rate of 0.2. The final output layer has an output size of 2 with linear activation function. We fit the training data with batch_size = 10 and epochs = 10. The optimizer was “adam” and the loss function is MSE.
+The VGG16 section was imported from tensorflow. For specific configuration, please refer [here]( https://github.com/tensorflow/tensorflow/blob/v2.3.1/tensorflow/python/keras/applications/vgg16.py#L45-L225). The first dense layer has units = 128, with relu activation. To avoid overfitting the data, we decide to add dropout layers with a dropout rate of 0.2. The final output layer has an output size of 2 with linear activation function. We fit the training data with batch_size = 10 and epochs = 10. The optimizer was “adam” and the loss function is MSE.
 
 ## Evaluation
 
