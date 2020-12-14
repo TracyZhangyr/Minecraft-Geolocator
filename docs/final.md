@@ -92,3 +92,29 @@ We will be evaluating our models quantitatively using mean squared error. Mean s
 From the MSE table above, we could see that our Four Direction VGG 16 model performed the best, followed by LeNet-5 Individual and LeNet-5 Conv3D. Specifically, Four Direction VGG model has a test MSE of 460 and a validation MSE of 227. For a more concrete idea on these numbers, given 4 validation images of the same coordinate, LeNet-5 Individual model would predict a coordinate that is on average 33 blocks away from the true coordinates in both x and z direction. LeNet-5 Conv3D model would predict a coordinate that is on average 35 blocks away from the true coordinates in both x and z directions. Four Direction VGG model would predict a coordinate that is on average 16 blocks away from the true coordinate in both x and z directions. All of these models have a lower MSE compared to the Simple CNN model we did in our status report. The Simple CNN model has a MSE of 2264 which means on average 47 blocks away in both x and z directions. 
 
 We believe that we have achieved our goal indicated in the project summary section. All of our CNN models have less than 2700 MSE. And all the CNN models also have significantly lower MSE than our baseline model. We have solved this regression problem to the extent that users could get a rather accurate idea of their position in the Cartesian coordinate system: on average 16 blocks away from the true coordinate. To further proof that we have solve the problem, we have provided a histogram below to show the distribution of Validation MSEs. 
+
+
+
+### Qualitative Evaluation
+
+One of the most important qualitative factors of our model is the ability to predict a coordinate that yields images similar to that of the true coordinates. This is important because similar images indicate that the predicted coordinates and the true coordinates are within a reasonable distance. We analyzed our models qualitatively by manually identifying key features in the test images and determine if those features are presented in the coordinates predicted by each model. We loaded the models onto our result checker. We gave each model the same test picture, and the results are shown above. The test image is taken at [99, 173]. It consists of some key features listed below.
+
+1.	Light & Dark green tiles in all the images
+2.	Whitehouse towards the left side in the –z image
+3.	The Washington Monument is in the far back in the –x image
+4.	Large building structure in –x, +z, and +x
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/CS175%20Final%20Diagrams-Image%20Features.png" />
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/CS175%20Final%20Diagrams-Qualitative%20Eval.png" />
+
+We could observe that the baseline looks very different from the test image. There isn’t the presence of light & dark green tiles. The Whitehouse, Washington Monument, and the large building structure are either zoomed in or too far back. LeNet Individual model looks very similar to the test image. The 4 features listed above are presented, and they look very similar to the test image. LeNet Conv3D is slightly worse than LeNet Individual. LeNet Conv3D model predicts [63, 157]. One key feature missing is the altering of light & dark green tiles. The 3 other key features look somewhat similar to the test image. Image drawn from Four Direction VGG 16’s predicted coordinates look almost identical to the true images. All four features listed above are presented, and they are scaled similarly to that of the true images.
+
+Based on our qualitative assessment, Four Directions VGG 16 solves the problem qualitatively to the extent that only small detailed differences between the test images and the images from Four Direction VGG 16 could be seen. Large image features are identical to the test images.  
+
+
+
+
+
+
+
