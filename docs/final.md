@@ -76,6 +76,23 @@ The first convolutional layer has filters = 16, kernel_size = 5, activation = re
 
 #### Four Directions VGG 16
 
+VGG is a CNN proposed by K. Simonyan and A. Zisserman. The model is used for large scale image recognition, which could be modified into a regression model. Our model is a direct implementation of VGG 16 with some tuning and adjusting to make the model a regression model rather than a classification model. Similar to LeNet-5 Individual, we applied VGG 16 on each individual image. Having lots of convolutional layers is one of the advantage of this model. Highly complexed environments such as ours may need multiple convolutional layers to distinguish subtle differences. Due to the model’s high complexity, Four Directions VGG 16 takes a long time to train. This could be seen as a disadvantage as the time constraint could reduce our opportunities to tune the model. 
+
+We will present 2 pictures below: a high-level picture of the model’s architecture and detailed configurations.
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/CS175%20Final%20Diagrams-VGG%2016.png" />
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/vgg1.PNG" />
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/vgg2.PNG" />
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/vgg3.PNG" />
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/vgg4.PNG" />
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/vgg5.PNG" />
+
+The VGG16 section is imported from tensorflow. For specific configuration, please refer [here]( https://github.com/tensorflow/tensorflow/blob/v2.3.1/tensorflow/python/keras/applications/vgg16.py#L45-L225). The first dense layer has units = 128, with relu activation as default. To avoid overfitting the data, we decide to add dropout layers with a dropout rate of 0.2. The final output layer has an output size of 2 with linear activation function. We fit the training data with batch_size = 10 and epochs = 10. The optimizer was “adam” and the loss function is MSE.
 
 ## Evaluation
 
