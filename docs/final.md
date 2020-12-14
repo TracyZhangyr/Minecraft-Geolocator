@@ -93,7 +93,9 @@ From the MSE table above, we could see that our Four Direction VGG 16 model perf
 
 We believe that we have achieved our goal indicated in the project summary section. All of our CNN models have less than 2700 MSE. And all the CNN models also have significantly lower MSE than our baseline model. We have solved this regression problem to the extent that users could get a rather accurate idea of their position in the Cartesian coordinate system: on average 16 blocks away from the true coordinate. To further proof that we have solve the problem, we have provided a histogram below to show the distribution of Validation MSEs. 
 
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/mse%20distribution.PNG" width='500' />
 
+From the histogram above, we could observe that most of the data fall below 200 MSE. Specifically, more than half of the validation data have an MSE in the range 0-150. This means that over half of the predictions are less than 12 blocks in both directions to the true coordinates. There are also a few data points that go above 200. This is likely due to the map resembling a real-life scenario. Real-life environments are complexed and highly subjected to change. Even a 1-2 blocks away could have drastically different image features. The reason for showing the histogram above is to show that the practical MSE is lower than 227. There are bad sampling points, such as the 2 points around 1300 MSE that increases the average MSE. Overall, we believe that our model has accomplished the goal of predicting coordinates within a reasonable distance. We were also very close to the moonshot case of having 100 MSE. Thus we believe that we have solved the problem sufficiently enough for users to take 4 images in Minecraft and have a general idea of where they are.
 
 ### Qualitative Evaluation
 
@@ -112,7 +114,35 @@ We could observe that the baseline looks very different from the test image. The
 
 Based on our qualitative assessment, Four Directions VGG 16 solves the problem qualitatively to the extent that only small detailed differences between the test images and the images from Four Direction VGG 16 could be seen. Large image features are identical to the test images.  
 
+## References
 
+[Project Malmo](https://www.microsoft.com/en-us/research/project/project-malmo/)
+
+[TensorFlow](https://www.tensorflow.org/)
+
+[OpenCV](https://opencv.org/)
+
+[Feature detection and matching with OpenCV](https://blog.francium.tech/feature-detection-and-matching-with-opencv-5fd2394a590)
+
+[Regression to the mean and its implications](https://towardsdatascience.com/regression-to-the-mean-and-its-implications-648660c9bf76)
+
+[Feature extraction from images](https://www.kaggle.com/lorinc/feature-extraction-from-images)
+
+[Deep Learning Models for Multi-Output Regression](https://machinelearningmastery.com/deep-learning-models-for-multi-output-regression/)
+
+[XML Schema Documentation](https://microsoft.github.io/malmo/0.14.0/Schemas/Mission.html)
+
+[scikit-learn](https://scikit-learn.org/stable/)
+
+[Basic regression: Predict fuel efficiency](https://www.tensorflow.org/tutorials/keras/regression)
+
+[Dual-input CNN with Keras](https://medium.com/datadriveninvestor/dual-input-cnn-with-keras-1e6d458cd979)
+
+[Keras, Regression, and CNNs](https://www.pyimagesearch.com/2019/01/28/keras-regression-and-cnns/)
+
+[Understanding 1D and 3D Convolution Neural Network | Keras](https://towardsdatascience.com/understanding-1d-and-3d-convolution-neural-network-keras-9d8f76e29610)
+
+[Draw.io](draw.io)
 
 
 
