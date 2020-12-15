@@ -94,6 +94,12 @@ We will present 2 pictures below: a high-level picture of the model’s architec
 
 The VGG16 section was imported from tensorflow. For specific configuration, please refer [here]( https://github.com/tensorflow/tensorflow/blob/v2.3.1/tensorflow/python/keras/applications/vgg16.py#L45-L225). The first dense layer has units = 128, with relu activation. To avoid overfitting the data, we decide to add dropout layers with a dropout rate of 0.2. The final output layer has an output size of 2 with linear activation function. We fit the training data with batch_size = 10 and epochs = 10. The optimizer was “adam” and the loss function is MSE.
 
+#### Single VGG 16
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/CS175%20Final%20Diagrams-Single%20VGG%2016.png" />
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/single%20vgg16.PNG" width='500'/>
+
 ## Evaluation
 
 This section will be divided into 2 subsections: Quantitative Evaluation and Qualitative evaluation. We will discuss our metrics in each of the evaluations, provide examples and data, as well as explain how we have solved the problem and to what extent have we solved the problem.
