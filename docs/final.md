@@ -125,7 +125,7 @@ One of the most important qualitative factors of our model is the ability to pre
 
 <img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/CS175%20Final%20Diagrams-Image%20Features.png" />
 
-<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/CS175%20Final%20Diagrams-Qualitative%20Eval.png" />
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/qualeval.png" />
 
 We could observe that the baseline looks very different from the test image. There isn’t the presence of light & dark green tiles. The Whitehouse, Washington Monument, and the large building structure are either zoomed in or too far back. LeNet Individual model looks very similar to the test image. The 4 features listed above are presented, and they look very similar to the test image. LeNet Conv3D is slightly worse than LeNet Individual. LeNet Conv3D model predicts [63, 157]. One key feature missing is the altering of light & dark green tiles. The 3 other key features look somewhat similar to the test image. Image drawn from Four Direction VGG 16’s predicted coordinates look almost identical to the true images. All four features listed above are presented, and they are scaled similarly to that of the true images.
 
