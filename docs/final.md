@@ -6,7 +6,15 @@ title: Final Report
 
 ## Video 
 
-Place Holder for Video
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jyX5lEiyxac" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Base Demo Full Video
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1-X6gO7kehQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Good Demo Full Video
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8bZH97Knh2o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Project Summary
 
