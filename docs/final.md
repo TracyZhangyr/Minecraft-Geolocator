@@ -104,9 +104,15 @@ The VGG16 section was imported from tensorflow. For specific configuration, plea
 
 #### Single VGG 16
 
+VGG is a CNN proposed by K. Simonyan and A. Zisserman. The model is used for large scale image recognition, which could be modified into a regression model. Our model is a direct implementation of VGG 16 with some tuning and adjusting to make the model a regression model rather than a classification model. Unlike Four Directions VGG16, we used a single VGG16 for images from all 4 directions. We combined images from all 4 directions to a single image and fed that into our Single VGG16 model. Single VGG16 has a speed and space advantage compared to the 4 directions VGG 16 because Single VGG16 is a much smaller model. One disadvantage of this model is that each of the 4 images was downscaled to 180x320. Scaling down the image resolution may cause some key features to be lost.
+
+We will present 2 pictures below: a high-level picture of the model’s architecture and detailed configurations. 
+
 <img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/CS175%20Final%20Diagrams-Single%20VGG%2016.png" />
 
 <img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/single%20vgg16.PNG" width='500'/>
+
+The VGG16 section was imported from tensorflow. For specific configuration, please refer [here]( https://github.com/tensorflow/tensorflow/blob/v2.3.1/tensorflow/python/keras/applications/vgg16.py#L45-L225). The first dense layer has units = 128, with relu activation. To avoid overfitting the data, we decide to add dropout layers with a dropout rate of 0.2. The final output layer has an output size of 2 with linear activation function. We fit the training data with batch_size = 3 and epochs = 7. The optimizer was “adam” and the loss function is MSE.
 
 ## Evaluation
 
