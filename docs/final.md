@@ -68,7 +68,7 @@ This model always predicts the center of the training dataset regardless of the 
 
 #### LeNet-5 Individual
 
-This model is based on the LeNet-5, a classical CNN model proposed Yann LeCun et al. in "Gradient-Based Learning Applied to Document Recognition." It is not the exact LeNet-5 model because we have made modifications to it. This model extracts features from the 4 different images individually. Each direction (+z, -z, +x, -z) has its own convolution layers to extract features, which are then concatenated and feed into a feed-forward multi-layer perceptron. One advantage of this model is that due to its unique architecture of extracting features from the 4 directions individually, the model is able to use Conv2D layers. Recall the shape of our training data is (441, 4, 360, 640, 1). The data has 5 dimensions, and Conv2D layers only accept 4 dimensions, namely (data size, height, width, channels). Using 4 different Conv2D layers to extract image features from the 4 directions allows us to reduce the data dimension to 4 rather than 5. Conv2D has an advantage over Conv3D as it trains faster. This gives us more time to tune the model and adjust it. One disadvantage of this model is that it is not able to recognize what image feature is from what direction. Sometimes images from different coordinates have similar features, but these similar features are captured in a different direction. This will cause the model to think that these 2 images are taken near each other due to their similar image features. The model is unaware of the fact that similar image features are from different directions causing high MSE loss.
+This model is based on the LeNet-5, a classical CNN model proposed by Yann LeCun et al. in "Gradient-Based Learning Applied to Document Recognition." It is not the exact LeNet-5 model because we have made modifications to it. This model extracts features from the 4 different images individually. Each direction (+z, -z, +x, -z) has its own convolution layers to extract features, which are then concatenated and feed into a feed-forward multi-layer perceptron. One advantage of this model is that due to its unique architecture of extracting features from the 4 directions individually, the model is able to use Conv2D layers. Recall the shape of our training data is (441, 4, 360, 640, 1). The data has 5 dimensions, and Conv2D layers only accept 4 dimensions, namely (data size, height, width, channels). Using 4 different Conv2D layers to extract image features from the 4 directions allows us to reduce the data dimension to 4 rather than 5. Conv2D has an advantage over Conv3D as it trains faster. This gives us more time to tune the model and adjust it. One disadvantage of this model is that it is not able to recognize what image feature is from what direction. Sometimes images from different coordinates have similar features, but these similar features are captured in a different direction. This will cause the model to think that these 2 images are taken near each other due to their similar image features. The model is unaware of the fact that similar image features are from different directions causing high MSE loss.
 
 We will present 2 pictures below: a high-level picture of the model’s architecture and detailed configurations.
 
@@ -92,7 +92,7 @@ The first convolutional layer has filters = 16, kernel_size = 5, activation = re
 
 #### Four Directions VGG 16
 
-<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/vgg16_architecture.JPG" width='800'/>
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/vgg16_architecture.JPG" width='900'/>
 Image Source: [VGG16](https://neurohive.io/en/popular-networks/vgg16/)
 
 After we created two models based on the LeNet-5 architecture and trained them from scratch, we would like to use a pre-trained VGG model for our problem by transfer learning. VGG is a CNN model proposed by K. Simonyan and A. Zisserman in "Very Deep Convolutional Networks for Large Scale Image Recognition." This model has excellent performances on object classification and localization tasks, which could be modified to solve an image regression problem. Our model is a direct implementation of pre-trained VGG16 with some tuning and adjusting to make the model a regression model rather than a classification model. First, we removed the last fully-connected classifier in the original VGG16 shown in the above figure. Similar to LeNet-5 Individual, we then applied this modified VGG16 on 4 directions and merged them into one model with the final customized dense layers to output coordinates in x-axis and z-axis.
@@ -178,6 +178,8 @@ Based on our qualitative assessment, Four Directions VGG16 solves the problem qu
 [Project Malmo](https://www.microsoft.com/en-us/research/project/project-malmo/)
 
 [TensorFlow](https://www.tensorflow.org/)
+
+[Keras](https://keras.io/)
 
 [OpenCV](https://opencv.org/)
 
