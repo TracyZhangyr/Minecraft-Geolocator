@@ -92,7 +92,8 @@ The first convolutional layer has filters = 16, kernel_size = 5, activation = re
 
 #### Four Directions VGG 16
 
-<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/vgg16_architecture.JPG" width='1000'/>
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/vgg16_architecture.JPG" width='800'/>
+Image Source: [VGG16](https://neurohive.io/en/popular-networks/vgg16/)
 
 After we created two models based on the LeNet-5 architecture and trained them from scratch, we would like to use a pre-trained VGG model for our problem by transfer learning. VGG is a CNN model proposed by K. Simonyan and A. Zisserman in "Very Deep Convolutional Networks for Large Scale Image Recognition." This model has excellent performances on object classification and localization tasks, which could be modified to solve an image regression problem. Our model is a direct implementation of pre-trained VGG16 with some tuning and adjusting to make the model a regression model rather than a classification model. First, we removed the last fully-connected classifier in the original VGG16 shown in the above figure. Similar to LeNet-5 Individual, we then applied this modified VGG16 on 4 directions and merged them into one model with the final customized dense layers to output coordinates in x-axis and z-axis.
 
@@ -135,7 +136,7 @@ For this model, we have two training steps. In the first step, we freeze all Con
 
 ## Evaluation
 
-This section will be divided into 2 subsections: Quantitative Evaluation and Qualitative evaluation. We will discuss our metrics in each of the evaluations, provide examples and data, as well as explain how we have solved the problem and to what extent have we solved the problem.
+This section will be divided into 2 subsections: Quantitative Evaluation and Qualitative evaluation. We will discuss our metrics in each of the evaluations, provide examples and data, and explain how we have solved the problem and to what extent have we solved the problem.
 
 ### Quantitative Evaluation
 
@@ -149,11 +150,11 @@ From the MSE table above, we could see that our Single VGG 16 model performed th
 
 We believe that we have achieved our goal indicated in the project summary section. All of our CNN models have less than 2700 MSE. And all the CNN models also have significantly lower MSE than our baseline model. We have solved this regression problem to the extent that users could get a rather accurate idea of their position in the Cartesian coordinate system: on average 12 blocks away from the true coordinate. To further proof that we have solve the problem, we have provided histograms below to show the distribution of Validation MSEs for the VGG 16 models. 
 
-<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/mse%20distribution.PNG" width='500' />
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/four_directions_vgg_training_loss.JPG" width='400' /><img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/mse%20distribution.PNG" width='400' />
 
-<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/singlevgg16msetable.PNG" width='500' />
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/single_vgg16_training_loss.JPG" width='400' /><img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/singlevgg16msetable.PNG" width='400' />
 
-From the histograms above, we could observe that most of the data fall below 200 MSE. Specifically, around half of the validation data have an MSE in the range 0-150. This means that around half of the predictions are less than 12 blocks in both directions to the true coordinates. There are also a few data points that go above 200. This is likely due to the map resembling a real-life scenario. Real-life environments are complexed and highly subjected to change. Even a 1-2 blocks away could have drastically different image features. The reason for showing the histograms above is to show that the practical MSE is lower than the MSE presented in the table above. There are bad sampling points, such as the one around 1300 MSE that increases the average MSE. Overall, we believe that our model has accomplished the goal of predicting coordinates within a reasonable distance. We were also very close to the moonshot case of having 100 MSE. Thus we believe that we have solved the problem sufficiently enough for users to take 4 images in Minecraft and have a general idea of where they are.
+From the plots of training loss above, we can see that both VGG16 models quickly converges after the third epochs and reaches very low MSEs in the end of training. From the histograms above, we could observe that most of the data fall below 200 MSE. Specifically, around half of the validation data have an MSE in the range 0-150. This means that around half of the predictions are less than 12 blocks in both directions to the true coordinates. There are also a few data points that go above 200. This is likely due to the map resembling a real-life scenario. Real-life environments are complexed and highly subjected to change. Even a 1-2 blocks away could have drastically different image features. The reason for showing the histograms above is to show that the practical MSE is lower than the MSE presented in the table above. There are bad sampling points, such as the one around 1300 MSE that increases the average MSE. Overall, we believe that our model has accomplished the goal of predicting coordinates within a reasonable distance. We were also very close to the moonshot case of having 100 MSE. Thus we believe that we have solved the problem sufficiently enough for users to take 4 images in Minecraft and have a general idea of where they are.
 
 ### Qualitative Evaluation
 
@@ -168,9 +169,9 @@ One of the most important qualitative factors of our model is the ability to pre
 
 <img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/qualeval.png" />
 
-We could observe that the baseline looks very different from the test image. There isn’t the presence of light & dark green tiles. The Whitehouse, Washington Monument, and the large building structure are either zoomed in or too far back. LeNet Individual model looks very similar to the test image. The 4 features listed above are presented, and they look very similar to the test image. LeNet Conv3D is slightly worse than LeNet Individual. LeNet Conv3D model predicts [63, 157]. One key feature missing is the altering of light & dark green tiles. The 3 other key features look somewhat similar to the test image. Image drawn from Four Direction VGG 16’s predicted coordinates look almost identical to the true images. All four features listed above are presented, and they are scaled similarly to that of the true images.
+We could observe that the baseline looks very different from the test image. There isn’t the presence of light & dark green tiles. The Whitehouse, Washington Monument, and the large building structure are either zoomed in or too far back. LeNet Individual model looks very similar to the test image. The 4 features listed above are presented, and they look very similar to the test image. LeNet Conv3D is slightly worse than LeNet Individual. LeNet Conv3D model predicts [63, 157]. One key feature missing is the altering of light & dark green tiles. The 3 other key features look somewhat similar to the test image. Image drawn from Four Direction VGG16’s predicted coordinates look almost identical to the true images. All four features listed above are presented, and they are scaled similarly to that of the true images. Singe VGG16 model have all 4 features shown in the images, but the point of view is far forward from the true location. 
 
-Based on our qualitative assessment, Four Directions VGG 16 solves the problem qualitatively to the extent that only small detailed differences between the test images and the images from Four Direction VGG 16 could be seen. Large image features are identical to the test images.  
+Based on our qualitative assessment, Four Directions VGG16 solves the problem qualitatively to the extent that only small detailed differences between the test images and the images from Four Direction VGG16 could be seen. Large image features are identical to the test images.  
 
 ## References
 
