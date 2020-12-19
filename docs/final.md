@@ -57,6 +57,8 @@ For LeNet-5 Individual and LeNet-5 Conv3D models, we convert images to grayscale
 
 For Four Directions VGG16 and Single VGG16 models, we first normalize image data to [0,1]. As the pre-trained VGG16 model requires a 3-channels input, we keep all RBG channels in our image data but scale down images to half the current size (from 360x640x3 to 180x320x3). 
 
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/data_preprocessing_vgg.JPG" />
+
 
 ### Models Building and Training
 
@@ -90,7 +92,7 @@ The first convolutional layer has filters = 16, kernel_size = 5, activation = re
 
 #### Four Directions VGG 16
 
-<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/vgg16_architecture.JPG" />
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/vgg16_architecture.JPG" width='1000'/>
 
 After we created two models based on the LeNet-5 architecture and trained them from scratch, we would like to use a pre-trained VGG model for our problem by transfer learning. VGG is a CNN model proposed by K. Simonyan and A. Zisserman in "Very Deep Convolutional Networks for Large Scale Image Recognition." This model has excellent performances on object classification and localization tasks, which could be modified to solve an image regression problem. Our model is a direct implementation of pre-trained VGG16 with some tuning and adjusting to make the model a regression model rather than a classification model. First, we removed the last fully-connected classifier in the original VGG16 shown in the above figure. Similar to LeNet-5 Individual, we then applied this modified VGG16 on 4 directions and merged them into one model with the final customized dense layers to output coordinates in x-axis and z-axis.
 
