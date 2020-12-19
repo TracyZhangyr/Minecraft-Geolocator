@@ -51,11 +51,11 @@ This section will be divided into 3 subsections: Data Collection, Data Preproces
 
 To reduce computational cost while retaining most image features, we preprocess data by manipulating input images. Specifically, we have implemented different data preprocessing methods for different models except the baseline one. 
 
-1.	For LeNet-5 Individual and LeNet-5 Conv3D models, we convert images to grayscale and normalize image data to the range of [0,1]. 
+For LeNet-5 Individual and LeNet-5 Conv3D models, we convert images to grayscale and normalize image data to the range of [0,1]. 
 
 <img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/CS175%20Final%20Diagrams-Data%20Preprocessing.png" />
 
-2.	For Four Directions VGG16 and Single VGG16 models, we first normalize image data to [0,1]. As the pre-trained VGG16 model requires a 3-channels input, we keep all RBG channels in our image data but scale down images to half the current size (from 360x640x3 to 180x320x3). 
+For Four Directions VGG16 and Single VGG16 models, we first normalize image data to [0,1]. As the pre-trained VGG16 model requires a 3-channels input, we keep all RBG channels in our image data but scale down images to half the current size (from 360x640x3 to 180x320x3). 
 
 
 ### Models Building and Training
@@ -116,6 +116,8 @@ The pre-trained VGG16 model was imported from TensorFlow Keras. For specific con
 #### Single VGG 16
 
 Unlike using 4 pre-trained VGG16 in the previous model, this time we used a single VGG16 for images from all 4 directions. We combined images from all 4 directions to a single image and fed that into our Single VGG16 model. As training images have been downscaled in the data preprocessing steps, we constructed the input images with the structure shown below in the picture.  
+
+<img src="https://raw.githubusercontent.com/alaister123/Geolocator/main/docs/img_final/combined_images.JPG" />
 
 Single VGG16 has a speed and space advantage as well as a good performance compared to the Four Directions VGG16 because Single VGG16 is a much smaller and simpler model. It is crucial for us to have such an advantage to develop a good real-time coordinates prediction in Minecraft with a balance of efficiency and performance. One disadvantage of this model is that the convolution layers apply one filter to extract features from all 4-direction images, which may impact our model's ability to generalize to other images from new coordinates. In our later evaluation section, we can see that, though Single VGG16 has the smallest validation MSE, its prediction on the new coordinate is not as good as the one from Four Directions VGG16 in practical use. 
 
